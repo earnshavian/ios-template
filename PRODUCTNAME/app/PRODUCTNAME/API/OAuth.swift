@@ -2,8 +2,8 @@
 //  OauthEndpoint.swift
 //  PRODUCTNAME
 //
-//  Created by Brian King on 11/2/16.
-//  Copyright © 2016 ORGANIZATION. All rights reserved.
+//  Created by LEADDEVELOPER on 11/2/16.
+//  Copyright © 2017 ORGANIZATION. All rights reserved.
 //
 
 import Alamofire
