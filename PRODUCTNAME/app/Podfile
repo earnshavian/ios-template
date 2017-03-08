@@ -13,6 +13,8 @@ target 'PRODUCTNAME' do
   pod 'BonMot'
   pod 'Anchorage'
   pod 'Swiftilities'
+  
+  pod 'SwiftLint'
 
   target 'PRODUCTNAMETests' do
     pod 'OHHTTPStubs/Swift'

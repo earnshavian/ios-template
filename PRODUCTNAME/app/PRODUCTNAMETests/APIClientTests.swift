@@ -37,7 +37,7 @@ class APIClientTests: XCTestCase {
         }
 
         let expectation = self.expectation(description: "Test Endpoint")
-        client.request(TestEndpoint()) { response, error in
+        client.request(TestEndpoint()) { _, error in
             XCTAssertNotNil(error)
             expectation.fulfill()
         }
