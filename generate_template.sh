@@ -7,24 +7,25 @@ EXPANDED="{{ cookiecutter.project_name | replace(' ', '') }}"
 # Make the tree
 find ./PRODUCTNAME -type d | while read FILE
 do
-    NEWFILE=`echo $FILE | LC_ALL=C sed -e "s/${LOOKUP}/${EXPANDED}/g"`
+    NEWFILE=`echo $FILE | sed -e "s/${LOOKUP}/${EXPANDED}/g"`
     echo "mkdir -p \"$NEWFILE\""
 done
 
 # Copy the files over
 find ./PRODUCTNAME -type f | while read FILE
 do
-    NEWFILE=`echo $FILE | LC_ALL=C sed -e "s/${LOOKUP}/${EXPANDED}/g"`
+    NEWFILE=`echo $FILE | sed -e "s/${LOOKUP}/${EXPANDED}/g"`
     echo "cp \"$FILE\" \"$NEWFILE\""
 done
 
 # Do replacements
 function replace {
-    find ./PRODUCTNAME -type f | while read FILE
+    grep -rl $1 ./PRODUCTNAME | while read FILE
     do 
-    NEWFILE=`echo $FILE | LC_ALL=C sed -e "s/${LOOKUP}/${EXPANDED}/g"`
+    NEWFILE=`echo $FILE | sed -e "s/${LOOKUP}/${EXPANDED}/g"`
         # Copy over incase the sed fails due to encoding
-        echo "LC_ALL=C sed -e \"s/$1/$2/g\" \"$NEWFILE\" > t1 && mv t1 \"$NEWFILE\""
+        #echo "echo \"$FILE\""
+        echo "sed -e \"s/$1/$2/g\" \"$NEWFILE\" > t1 && mv t1 \"$NEWFILE\""
     done
 }
 
